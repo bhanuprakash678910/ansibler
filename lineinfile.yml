@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   become: yes
+   tasks:
+   - name: Validate the sudoers file before saving
+     ansible.builtin.lineinfile:
+       path: /etc/sudoers
+       state: present
+       regexp: "^%ramu ALL="
+       line: "%ramu ALL=(ALL) NOPASSWD: ALL"
+       validate: /usr/sbin/visudo -cf %s
