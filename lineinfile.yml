@@ -9,3 +9,5 @@
        regexp: "^%ramu ALL="
        line: "%ramu ALL=(ALL) NOPASSWD: ALL"
        validate: /usr/sbin/visudo -cf %s
+   - name: debug
+     debug: msg="hello"
